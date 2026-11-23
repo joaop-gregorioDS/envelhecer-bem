@@ -1,0 +1,110 @@
+// Paleta da Vortex Software (extraída de vortexsoftware.tech)
+:root {
+  --vx-primary: #c03;
+  --vx-primary-foreground: #fff;
+  --vx-rose: #ef5274;
+  --vx-magenta: #ae1269;
+  --vx-error: #ad002b;
+
+  --vx-background: #f8f7f8;
+  --vx-surface: #f3f1f3;
+  --vx-surface-raised: #fff;
+  --vx-foreground: #29252a;
+  --vx-muted: #665e66;
+  --vx-border: #e7e1e5;
+
+  // Estilo da imagem de referência (gradiente horizontal, cards neumórficos),
+  // com as cores da Vortex: rosa -> primária -> magenta
+  --vx-gradient: linear-gradient(90deg, var(--vx-rose) 0%, var(--vx-primary) 55%, var(--vx-magenta) 100%);
+  --vx-radius: 0.5rem;
+  // Sombra neumórfica: suave, dos dois lados, com tom neutro da marca
+  --vx-shadow: 8px 8px 16px rgba(102, 94, 102, 0.22), -8px -8px 16px rgba(255, 255, 255, 0.95);
+  --vx-shadow-blue: 0 10px 24px rgba(204, 0, 51, 0.3);
+  --vx-radius-card: 1.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  color: var(--vx-foreground);
+  background: var(--vx-background);
+}
+
+a {
+  color: var(--vx-primary);
+}
+
+h1,
+h2 {
+  letter-spacing: -0.02em;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.2rem;
+  border: 0;
+  border-radius: var(--vx-radius);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--vx-gradient);
+  color: var(--vx-primary-foreground);
+  box-shadow: var(--vx-shadow-blue);
+  transition: filter 0.15s ease, transform 0.15s ease;
+
+  &:hover:not(:disabled) {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.card {
+  background: linear-gradient(180deg, var(--vx-surface-raised) 0%, var(--vx-surface) 100%);
+  border-radius: var(--vx-radius-card);
+  padding: 1.5rem;
+  box-shadow: var(--vx-shadow);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1rem;
+
+  input,
+  textarea {
+    padding: 0.65rem 0.8rem;
+    border: 1px solid var(--vx-border);
+    border-radius: var(--vx-radius);
+    font: inherit;
+    background: #fff;
+
+    &:focus {
+      outline: 2px solid var(--vx-rose);
+      outline-offset: 1px;
+    }
+  }
+
+  .erro {
+    color: var(--vx-error);
+    font-size: 0.85rem;
+  }
+}
+
+.alerta-erro {
+  color: var(--vx-error);
+  margin: 0 0 1rem;
+}
